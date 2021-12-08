@@ -1,4 +1,4 @@
-# Vtex Product Specification Video
+# VTEX Product Specification Video
 
 ## Description
 
