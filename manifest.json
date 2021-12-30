@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "product-specification-image",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "title": "Product Videeo",
   "description": "Product video component",
   "defaultLocale": "en-EN",
