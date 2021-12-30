@@ -1,6 +1,6 @@
 {
   "vendor": "vtex",
-  "name": "product-specification-video",
+  "name": "product-specification-image",
   "version": "0.1.2",
   "title": "Product Videeo",
   "description": "Product video component",
@@ -14,7 +14,7 @@
     "vtex.styleguide": "9.x",
     "vtex.css-handles": "0.x",
     "vtex.product-context": "0.x",
-    "vtex.store-video": "1.x"
+    "vtex.store-image": "0.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

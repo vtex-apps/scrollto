@@ -18,7 +18,7 @@ To use this app, you need to import in your dependencies on `manifest.json`.
 
 ```json
   "dependencies": {
-    "vtex.product-specification-video": "0.x"
+    "vtex.product-specification-image": "0.x"
   }
 ```
 
