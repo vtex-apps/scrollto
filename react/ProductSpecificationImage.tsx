@@ -23,7 +23,7 @@ const CSS_HANDLES = [
 ,
 ] as const
 
-const Productvideo: StorefrontFunctionComponent<ProductSpecificationImageProps> = (
+const ProductSpecificationImage: StorefrontFunctionComponent<ProductSpecificationImageProps> = (
   { specification = "", 
     name,
     maxWidth,
@@ -51,12 +51,15 @@ const Productvideo: StorefrontFunctionComponent<ProductSpecificationImageProps> 
       var fields= productContextValue.product?.properties || false;
       
       if(fields){
-
+        console.log("fields:");
+        console.log(fields);
         for(var i=0; i<fields.length; i++){
 
           if(fields[i].name==specification && fields[i].values.length>0){
+            console.log("found field: " + specification)
             
             output=fields[i].values[0];
+            console.log("found value: " + output)
             break;
           }
         }
@@ -76,6 +79,8 @@ const Productvideo: StorefrontFunctionComponent<ProductSpecificationImageProps> 
   function buildDom(){
     
     image = (typeof image == "undefined" ? "" : image);
+    console.log("image found for rendering:")
+    console.log(image)
     if(image.trim()<='' ){
       console.log("no image found - hide ");
       return <div className={handles.containerEmpty} ></div>;
@@ -87,7 +92,6 @@ const Productvideo: StorefrontFunctionComponent<ProductSpecificationImageProps> 
         <div className={handles.imageContainer}>
           <Image name={name}
             specification={specification}
-            name={name}
             maxWidth={maxWidth}
             maxHeight={maxHeight}
             minWidth={minWidth}
@@ -114,14 +118,14 @@ const Productvideo: StorefrontFunctionComponent<ProductSpecificationImageProps> 
 
 
 //Stuff for the site editor. Might not need it.
-Productvideo.schema = {
-  title: 'editor.video.title',
-  description: 'editor.video.description',
+ProductSpecificationImage.schema = {
+  title: 'editor.image.title',
+  description: 'editor.image.description',
   type: 'object',
   properties: {
 
     specification: {
-            title: 'Video specification field name',
+            title: 'Image specification field name',
             description: 'in which field is the image stored?',
             type: 'string',
             default: undefined,
@@ -175,4 +179,4 @@ Productvideo.schema = {
   },
 }
 
-export default Productvideo
+export default ProductSpecificationImage

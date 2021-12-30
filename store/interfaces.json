@@ -1,5 +1,5 @@
 {
-  "productvideo": { 
-    "component": "Productvideo"
+  "productimage": { 
+    "component": "ProductSpecificationImage"
   }
 }

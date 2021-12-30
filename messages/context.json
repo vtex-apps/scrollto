@@ -1,4 +1,4 @@
 {
-  "editor.video.title": "Product Specification Video",
-  "editor.video.description": "Plays a video from a Specification field"
+  "editor.image.title": "Product Specification Image",
+  "editor.image.description": "Displays an Image from a Specification field"
 }
