@@ -1,9 +1,9 @@
 {
   "vendor": "vtex",
-  "name": "product-specification-image",
+  "name": "product-specification-text",
   "version": "0.1.0",
-  "title": "Product Videeo",
-  "description": "Product video component",
+  "title": "Product speicification Text",
+  "description": "Product Component to display speciifcations. Works on shelfs too.",
   "defaultLocale": "en-EN",
   "builders": {
     "messages": "1.x",
@@ -13,8 +13,7 @@
   "dependencies": {
     "vtex.styleguide": "9.x",
     "vtex.css-handles": "0.x",
-    "vtex.product-context": "0.x",
-    "vtex.store-image": "0.x"
+    "vtex.product-context": "0.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

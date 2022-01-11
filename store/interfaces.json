@@ -1,5 +1,5 @@
 {
-  "productimage": { 
-    "component": "ProductSpecificationImage"
+  "productspecificationtext": { 
+    "component": "ProductSpecificationText"
   }
 }

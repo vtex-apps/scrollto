@@ -1,4 +1,4 @@
 {
-  "editor.image.title": "Product Specification Image",
-  "editor.image.description": "Displays an Image from a Specification field"
+  "editor.field.title": "Product Specification Text",
+  "editor.field.description": "Displays a Text Value from a Specification field"
 }
