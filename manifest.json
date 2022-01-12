@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "product-specification-text-display",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "title": "Product speicification Text",
   "description": "Product Component to display speciifcations. Works on shelfs too.",
   "defaultLocale": "en-EN",
