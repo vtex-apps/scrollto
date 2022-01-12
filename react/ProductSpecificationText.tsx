@@ -1,11 +1,12 @@
 import React from 'react'
 import { useProduct } from 'vtex.product-context'   
-
 import { useCssHandles } from 'vtex.css-handles'
 
 interface ProductSpecificationTextProps {
   specification?: string,
-  group?: string
+  group?: string,
+  blockClass?: string,
+  
   
 
 }
@@ -20,14 +21,15 @@ const CSS_HANDLES = [
 
 const ProductSpecificationText: StorefrontFunctionComponent<ProductSpecificationTextProps> = (
   { specification = "",
-    group = "" 
+    group = "",
+    blockClass= ""
     
     
   }
   
   ) => {
 
-  const  handles  = useCssHandles(CSS_HANDLES)
+  const  handles = useCssHandles(CSS_HANDLES, blockClass)
 
   const productContextValue = useProduct();
   var thetext=loadField();

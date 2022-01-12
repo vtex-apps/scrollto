@@ -1,6 +1,6 @@
 {
   "vendor": "vtex",
-  "name": "product-specification-text",
+  "name": "product-specification-text-display",
   "version": "0.1.1",
   "title": "Product speicification Text",
   "description": "Product Component to display speciifcations. Works on shelfs too.",
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "vtex.styleguide": "9.x",
-    "vtex.css-handles": "0.x",
+    "vtex.css-handles": "1.x",
     "vtex.product-context": "0.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
