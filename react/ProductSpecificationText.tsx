@@ -45,7 +45,7 @@ const ProductSpecificationText: StorefrontFunctionComponent<ProductSpecification
       console.log(productContextValue);
       var groups= productContextValue.product?.specificationGroups || false;
       
-      if(groups){
+      if(groups.length>0){
         console.log("groups:");
         console.log(groups);
         for(var i=0; i<groups.length; i++){
@@ -69,6 +69,17 @@ const ProductSpecificationText: StorefrontFunctionComponent<ProductSpecification
             break;
           }*/
         }
+      }else { //we couldnt find groups, lets try to load the field individually.
+        var fields = productContextValue.product?.properties;
+        if(fields.length>0){
+          for(var i=0; i<fields.length; i++){
+            if(fields[i].name==specification){
+              return fields[i].values
+              
+            } else continue;
+          }
+        }
+
       }
     }
     return output;
