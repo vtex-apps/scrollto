@@ -6,6 +6,7 @@ interface ProductSpecificationTextProps {
   specification?: string,
   group?: string,
   blockClass?: string,
+  mode?: string
   
   
 
@@ -15,61 +16,85 @@ const CSS_HANDLES = [
   
   'containerEmpty',
   'specificationTextContainer',
-  'specificationTextValue'
-,
-] as const
+  'specificationTextValue',
+  'specificationTextField'
+] as const;
 
 const ProductSpecificationText: StorefrontFunctionComponent<ProductSpecificationTextProps> = (
   { specification = "",
     group = "",
-    blockClass= ""
-    
+    //blockClass= "",
+    mode = "field"
     
   }
   
   ) => {
 
-  const  handles = useCssHandles(CSS_HANDLES, blockClass)
-
+  const { handles } = useCssHandles(CSS_HANDLES);
+    
   const productContextValue = useProduct();
   var thetext=loadField();
-  console.log("the text:");
-  console.log(thetext);
+  
 
 
 
   function loadField(){
     var output=[];
     if(specification>="" && group >=""){
-      console.log("all specs");
-      console.log(productContextValue);
+
+
       var groups= productContextValue.product?.specificationGroups || false;
       
       if(groups.length>0){
-        console.log("groups:");
-        console.log(groups);
+
+
+        //ADD first switch here. We gotta continue searching for the name and return the "classic way"
+        //we gotta pull all fields and all values in the group way, if a group is given.
+        
+
         for(var i=0; i<groups.length; i++){
           //finding the field in the groups
           if(groups[i].originalName != group) continue;
 
-          for(var j=0; j<groups[i].specifications.length; j++){
-            if(groups[i].specifications[j].originalName != specification) continue; //not ours? skip!
+          switch (mode){
+            case "group":
+              var specs=groups[i].specifications;
+              var mergedgroups=[];
+              
+              for(var j=0; j<specs.length; j++){ //Specification names
+                var vals=[];
+                for(var k=0; k<specs[j].values.length; k++){
+                    vals.push(<span className={handles.specificationTextValue}>
+                        {specs[j].values[k]}
+                        </span>);
+                }
+                mergedgroups.push(<div className={handles.specificationTextField}>
+                    {vals}
+                  </div>);
 
-            output=groups[i].specifications[j].values; 
-            console.log("JACKPOT!");
-            console.log(output);
-            break;
+                
+                
+              }
+              output=mergedgroups;
+              break;
+
+
+
+            case "specification":
+            default: 
+                for(var j=0; j<groups[i].specifications.length; j++){ //The group is found, we look for names
+                  if(groups[i].specifications[j].originalName != specification) continue; //not ours? skip!
+                  output=groups[i].specifications[j].values; 
+
+                  break;
+                }
+                break;
           }
+
+          
           break;
-          /*if(fields[i].name==specification && fields[i].values.length>0){
-            console.log("found field: " + specification)
-            
-            output=fields[i].values[0];
-            console.log("found value: " + output)
-            break;
-          }*/
         }
-      }else { //we couldnt find groups, lets try to load the field individually.
+      } else { //we couldnt find groups, lets try to load the field individually.
         var fields = productContextValue.product?.properties;
         if(fields.length>0){
           for(var i=0; i<fields.length; i++){
@@ -85,28 +110,22 @@ const ProductSpecificationText: StorefrontFunctionComponent<ProductSpecification
     return output;
   }
   
-  /*function activateProductContext(){
-    console.log(productContextValue);
-    console.log(specification);
-    console.log("i got "+loadField());
-    console.log("zeh video "+video)
-    console.log("Zeh Fallback "+fallbackvideo)
-  }*/
+
 
   function buildDom(){
     
-    joinDOM();
+    
     
     if(thetext.length==0){
-      console.log("no value found - hide ");
+      
       return <div className={handles.containerEmpty} ></div>;
     }
     else{
       
-      console.log("rendering like a baus");
-      console.log(joinDOM());
+      
+      
       return (
-        <div className={handles.specificationTextContainer}>
+        <div className={handles.specificationTextField} >
             {joinDOM()}
         </div>
       )
@@ -116,12 +135,23 @@ const ProductSpecificationText: StorefrontFunctionComponent<ProductSpecification
 
   }
   function joinDOM(){
+    
+    
     let output=[];
-    for(var i=0; i<thetext.length; i++){
-      output.push(<span className={handles.specificationTextValue}>
-        {thetext[i]}
-        </span>)
+    switch (mode){
+      case "group":
+        return thetext;
+        break;
+        case "specification":
+          default: 
+              for(var i=0; i<thetext.length; i++){
+                output.push(<span className={handles.specificationTextValue}>
+                  {thetext[i]}
+                  </span>)
+              }
+          break;
     }
+
     return output;
   }
   
