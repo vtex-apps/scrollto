@@ -34,8 +34,14 @@ const ProductSpecificationText: StorefrontFunctionComponent<ProductSpecification
     
   const productContextValue = useProduct();
   var thetext=loadField();
-  
 
+  /*function buildExtraHandle(handle:string, name:string){
+    const regex = /[äöüÄÖÜéÉáÁóÓúÚíÍñÑçÇ ]/gm;
+    const subst = ``
+    const result = handle+'--'+name.replace(regex, subst);
+    return result;
+  }*/
+  
 
 
   function loadField(){
@@ -54,28 +60,24 @@ const ProductSpecificationText: StorefrontFunctionComponent<ProductSpecification
 
         for(var i=0; i<groups.length; i++){
           //finding the field in the groups
+          
           if(groups[i].originalName != group) continue;
 
           switch (mode){
             case "group":
               var specs=groups[i].specifications;
-              var mergedgroups=[];
+             // var mergedgroups=[];
               
+              var vals=[];
               for(var j=0; j<specs.length; j++){ //Specification names
-                var vals=[];
+                
                 for(var k=0; k<specs[j].values.length; k++){
                     vals.push(<span className={handles.specificationTextValue}>
                         {specs[j].values[k]}
-                        </span>);
+                        </span>); 
                 }
-                mergedgroups.push(<div className={handles.specificationTextField}>
-                    {vals}
-                  </div>);
-
-                
-                
               }
-              output=mergedgroups;
+              output=vals;
               break;
 
 
