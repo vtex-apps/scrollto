@@ -1,9 +1,9 @@
 {
   "vendor": "vtex",
-  "name": "product-specification-text-display",
-  "version": "0.6.0",
-  "title": "Product speicification Text",
-  "description": "Product Component to display speciifcations. Works on shelfs too.",
+  "name": "scrollto",
+  "version": "0.0.1",
+  "title": "VTEX Scrollto",
+  "description": "Little handy link component that allows deeplinking into any class and scroll to it on interaction. Optionally, you can also make the app click the element. This is useful if you want to scroll to a content hidden in a tab. ",
   "defaultLocale": "en-EN",
   "builders": {
     "messages": "1.x",

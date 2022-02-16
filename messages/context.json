@@ -1,4 +1,4 @@
 {
-  "editor.field.title": "Product Specification Text",
-  "editor.field.description": "Displays a Text Value from a Specification field"
+  "editor.field.title": "ScrollTo",
+  "editor.field.description": "Scrolls to any CSS DOM selector"
 }
