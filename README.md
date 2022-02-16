@@ -13,6 +13,11 @@ VTEX Scrollto is a handy little app to navigate to **any** element on the curren
 
 
 ## Usage
+As usual, make sure to install the app:
+
+```bash
+vtex install vtex.scrollto@0.x
+```
 
 To use this app, you need to import in your dependencies on `manifest.json`.
 
