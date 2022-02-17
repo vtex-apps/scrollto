@@ -28,7 +28,7 @@ To use this app, you need to import in your dependencies on `manifest.json`.
 ```
 
 ### How it works?
-This app expexts a CSS selector string as a prop, which it will try to scroll to. You can use a classic selector string as you also know it from JQUERY.
+This app expects a CSS selector string as a prop, which it will try to scroll to. You can use a classic selector string as you also know it from using jQuery.
 You can also enable a click on the target element prior to scrolling to it.
 **this is in particular handy to first open a tab and then scroll right into it.**
 
